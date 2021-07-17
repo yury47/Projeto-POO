@@ -8,8 +8,8 @@ public class Principal {
 
 	public static void main (String[] args) throws FileNotFoundException, IOException {
 		
-		CriaPlanilha.criarPlanilha();
-		
+		//CriaPlanilha.criarPlanilha();
+		TesteCriacaoPlanilha.criarPlanilhaPersonalizada();
 	}
 		
 }
