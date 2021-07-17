@@ -8,8 +8,8 @@ public class Aluno {
 	private String graduacao;
 	private String ano_ingresso;  // format DD-MM-YYYY
 	private int periodo_ingresso; // quadrimestre 1,2 ou 3
-	private ArrayList<String> materias_concluidas;
-	private ArrayList<String> materias_reprovadas;
+	private ArrayList<String> materias_concluidas;  // recebe a materia como parametro no set
+	private ArrayList<String> materias_reprovadas;  // recebe a materia como parametro no set
 	private double ca;
 	private double cr;
 	private double cp;
@@ -59,8 +59,8 @@ public class Aluno {
 		return materias_concluidas;
 	}
 
-	public void setMaterias_aprovadas(ArrayList<String> materias_concluidas) {
-		this.materias_concluidas = materias_concluidas;
+	public void setMaterias_aprovadas(String materia) {
+		this.materias_concluidas.add(materia);
 	}
 	
 	
@@ -68,8 +68,8 @@ public class Aluno {
 		return materias_reprovadas;
 	}
 
-	public void setMaterias_reprovadas(ArrayList<String> materias_reprovadas) {
-		this.materias_reprovadas = materias_reprovadas;
+	public void setMaterias_reprovadas(String materia) {
+		this.materias_concluidas.add(materia);
 	}
 	
 	

@@ -16,7 +16,6 @@ public class CriaPlanilha{
 		
         // Creating Workbook instances
         Workbook wb = new HSSFWorkbook();
-        //Workbook wb = new XSSFWorkbook();
   
         // An output stream accepts output bytes and sends them to sink.
         OutputStream fileOut = new FileOutputStream("Carlos.xlsx");
