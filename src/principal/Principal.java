@@ -12,7 +12,7 @@ public class Principal {
 		
 		//CriaPlanilha.criarPlanilha();
 		//TesteCriacaoPlanilha.criarPlanilhaPersonalizada();
-		TesteLeituraJSON.lerJSON();
+		Leitura_JSON.lerJSON();
 	}
 		
 }
