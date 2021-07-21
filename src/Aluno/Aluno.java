@@ -57,22 +57,16 @@ public class Aluno {
 	}
 	
 	
-	public ArrayList<String> getMaterias_aprovadas() {
-		return materias_concluidas;
+	public ArrayList<Disciplina> getMaterias_cursadas() {
+		return materias_cursadas;
 	}
 
-	public void setMaterias_aprovadas(String materia) {
-		this.materias_concluidas.add(materia);
+	public void setMaterias_aprovadas(Disciplina materia) {
+		this.materias_cursadas.add(materia);
 	}
 	
 	
-	public ArrayList<String> getMaterias_reprovadas() {
-		return materias_reprovadas;
-	}
-
-	public void setMaterias_reprovadas(String materia) {
-		this.materias_concluidas.add(materia);
-	}
+	
 	
 	
 	public double getCa() {
