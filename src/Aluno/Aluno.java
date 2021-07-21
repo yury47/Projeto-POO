@@ -1,6 +1,8 @@
 package Aluno;
 import java.util.ArrayList;
 
+import Graduacao.Disciplina;
+
 public class Aluno {
 	
 	private String nome;
@@ -8,8 +10,8 @@ public class Aluno {
 	private String graduacao;
 	private String ano_ingresso;  // format DD-MM-YYYY
 	private int periodo_ingresso; // quadrimestre 1,2 ou 3
-	private ArrayList<String> materias_concluidas;  // recebe a materia como parametro no set
-	private ArrayList<String> materias_reprovadas;  // recebe a materia como parametro no set
+	private ArrayList<Disciplina> materias_cursadas;  // recebe a materia como parametro no set
+	//private ArrayList<String> materias_reprovadas;  // recebe a materia como parametro no set
 	private double ca;
 	private double cr;
 	private double cp;

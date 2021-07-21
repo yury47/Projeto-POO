@@ -1,12 +1,13 @@
 package Graduacao;
 
+
 public abstract class Graduacao {
 	private String nome;
 	private int creditos_obrigatorios;
 	private int creditos_livres;
 	private int creditos_limitados;
 	private int creditos_reserva_vaga;
-	//private ArrayList<Disciplinas> disciplinas;
+	
 	
 	public Graduacao(String nome, int obrigatorias, int livres, int limitadas, int reserva) {
 		this.nome = nome;

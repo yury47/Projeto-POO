@@ -11,8 +11,8 @@ public class Principal {
 	public static void main (String[] args) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 		
 		//CriaPlanilha.criarPlanilha();
-		//TesteCriacaoPlanilha.criarPlanilhaPersonalizada();
-		Leitura_JSON.lerJSON();
+		//Leitura_JSON.lerJSON();
+		CriacaoPlanilhaSaida.criarPlanilhaPersonalizada();
 	}
 		
 }
