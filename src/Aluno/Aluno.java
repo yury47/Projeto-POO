@@ -56,19 +56,16 @@ public class Aluno {
 		this.periodo_ingresso = quad;
 	}
 	
+
+	public void setMaterias_cursadas(ArrayList<Disciplina> materias_cursadas) {
+		this.materias_cursadas = materias_cursadas;
+	}
 	
 	public ArrayList<Disciplina> getMaterias_cursadas() {
 		return materias_cursadas;
 	}
 
-	public void setMaterias_aprovadas(Disciplina materia) {
-		this.materias_cursadas.add(materia);
-	}
-	
-	
-	
-	
-	
+		
 	public double getCa() {
 		return ca;
 	}

@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import org.json.simple.parser.ParseException;
 
+import Aluno.Aluno;
+
 
 public class Principal {
 
@@ -12,7 +14,11 @@ public class Principal {
 		
 		//CriaPlanilha.criarPlanilha();
 		//Leitura_JSON.lerJSON();
-		CriacaoPlanilhaSaida.criarPlanilhaPersonalizada();
+		//CriacaoPlanilhaSaida.criarPlanilhaPersonalizada();
+		
+		Aluno aluno = new Aluno("Yury", "11201720122", "Ciência da computação");
+		Leitura_JSON.lerJSON(aluno);
+		CriacaoPlanilhaSaida.criarPlanilhaPersonalizada(aluno);
 	}
 		
 }

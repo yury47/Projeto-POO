@@ -2,15 +2,15 @@ package Graduacao;
 
 public class Disciplina {
 	private String nome;
-	private int creditos;
-	private int periodo;
+	private String creditos;
+	private String periodo;
 	private String situacao;
-	private int ano;
+	private String ano;
 	private String codigo;
 	private String categoria;
 	private String conceito;
 	
-	public Disciplina(String nome, int creditos, int periodo, String situacao, int ano, String codigo, String categoria, String conceito) {
+	public Disciplina(String nome, String creditos, String periodo, String situacao, String ano, String codigo, String categoria, String conceito) {
 		this.nome = nome;
 		this.creditos = creditos;
 		this.periodo = periodo;
@@ -29,19 +29,19 @@ public class Disciplina {
 		this.nome = nome;
 	}
 
-	public int getCreditos() {
+	public String getCreditos() {
 		return creditos;
 	}
 
-	public void setCreditos(int creditos) {
+	public void setCreditos(String creditos) {
 		this.creditos = creditos;
 	}
 
-	public int getPeriodo() {
+	public String getPeriodo() {
 		return periodo;
 	}
 
-	public void setPeriodo(int periodo) {
+	public void setPeriodo(String periodo) {
 		this.periodo = periodo;
 	}
 
@@ -53,11 +53,11 @@ public class Disciplina {
 		this.situacao = situacao;
 	}
 
-	public int getAno() {
+	public String getAno() {
 		return ano;
 	}
 
-	public void setAno(int ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
 
