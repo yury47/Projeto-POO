@@ -11,7 +11,8 @@ public class Aluno {
 	private String ano_ingresso;  // format DD-MM-YYYY
 	private int periodo_ingresso; // quadrimestre 1,2 ou 3
 	private ArrayList<Disciplina> materias_cursadas;  // recebe a materia como parametro no set
-	//private ArrayList<String> materias_reprovadas;  // recebe a materia como parametro no set
+	private ArrayList<Disciplina> materias_reprovadas;  // recebe a materia como parametro no set
+	private ArrayList<Disciplina> materias_aprovadas;
 	private double ca;
 	private double cr;
 	private double cp;
@@ -64,7 +65,22 @@ public class Aluno {
 	public ArrayList<Disciplina> getMaterias_cursadas() {
 		return materias_cursadas;
 	}
-
+	
+	public void setMaterias_reprovadas(ArrayList<Disciplina> materias_reprovadas) {
+		this.materias_reprovadas = materias_reprovadas;
+	}
+	
+	public ArrayList<Disciplina> getMaterias_reprovadas(){
+		return materias_reprovadas;
+	}
+	
+	public void setMaterias_aprovadas(ArrayList<Disciplina> materias_aprovadas) {
+		this.materias_aprovadas = materias_aprovadas;
+	}
+	
+	public ArrayList<Disciplina> getMaterias_aprovadas(){
+		return materias_reprovadas;
+	}
 		
 	public double getCa() {
 		return ca;

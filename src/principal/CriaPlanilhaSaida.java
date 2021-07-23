@@ -15,7 +15,7 @@ import Aluno.Aluno;
 import Graduacao.Disciplina;
 
 
-public class CriacaoPlanilhaSaida {
+public class CriaPlanilhaSaida {
 
 	public static void criarPlanilhaPersonalizada(Aluno aluno) throws IOException, ParseException {
 			
