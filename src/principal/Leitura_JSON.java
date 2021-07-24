@@ -4,6 +4,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import Aluno.Aluno;
+import Graduacao.CalculosGraduacao;
 import Graduacao.Disciplina;
 
 import org.json.JSONArray;
@@ -23,13 +24,11 @@ public class Leitura_JSON {
 		JSONParser parser = new JSONParser(); 
 
 		//Corrigir a pasta de acesso do arquivo
-		Object obj = parser.parse(new FileReader("ficha.json"));
+		Object obj = parser.parse(new FileReader("fichaNamorado.json"));
 		
 		JSONArray jarray = new JSONArray(obj.toString());
 	    
 		ArrayList<Disciplina> materias = new ArrayList<Disciplina>();
-		ArrayList<Disciplina> materias_reprovadas = new ArrayList<Disciplina>();
-		ArrayList<Disciplina> materias_aprovadas = new ArrayList<Disciplina>();
 		
 	    for (int i = 0; i < jarray.length(); i++) {
 	    	
@@ -45,19 +44,17 @@ public class Leitura_JSON {
 	    	String conceito = materia.getString("conceito");
 	    		    	
 	    	Disciplina novaMateria = new Disciplina(disciplina, creditos, periodo, situacao, ano, codigo, categoria, conceito);
-	    	materias.add(novaMateria);
-	    	
-	    	if(situacao == "Reprovado") {
-	    		materias_reprovadas.add(novaMateria);
-	    	} else if(situacao == "Aprovado") {
-	    		materias_aprovadas.add(novaMateria);
-	    	}
-	    	
+	    	materias.add(novaMateria);	
 	    }
-	    aluno.setMaterias_cursadas(materias);
-	    aluno.setMaterias_reprovadas(materias_reprovadas);
-	    aluno.setMaterias_aprovadas(materias_aprovadas);
 	    
+	    aluno.setMaterias_cursadas(materias);
+	    
+	    for(int i = 0; i<aluno.getMaterias_cursadas().size(); i++) { // set booleano de maior nota
+	    	if(aluno.getMaterias_cursadas().get(i).getConceito()
+	    			.equals(CalculosGraduacao.confereMateria(aluno.getMaterias_cursadas().get(i).getCodigo(), aluno.getMaterias_cursadas()))) {
+	    		aluno.getMaterias_cursadas().get(i).setMaiornota(true);
+	    	}
+	    }
 	}
 	
 }

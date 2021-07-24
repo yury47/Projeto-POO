@@ -11,11 +11,12 @@ public class Aluno {
 	private String ano_ingresso;  // format DD-MM-YYYY
 	private int periodo_ingresso; // quadrimestre 1,2 ou 3
 	private ArrayList<Disciplina> materias_cursadas;  // recebe a materia como parametro no set
-	private ArrayList<Disciplina> materias_reprovadas;  // recebe a materia como parametro no set
-	private ArrayList<Disciplina> materias_aprovadas;
 	private double ca;
 	private double cr;
-	private double cp;
+	private int obrigatorios_concluidos;
+	private int limitados_concluidos;
+	private int livres_concluidos;
+	
 	
 	
 	public Aluno(String nome, String ra, String graduacao) {
@@ -66,21 +67,6 @@ public class Aluno {
 		return materias_cursadas;
 	}
 	
-	public void setMaterias_reprovadas(ArrayList<Disciplina> materias_reprovadas) {
-		this.materias_reprovadas = materias_reprovadas;
-	}
-	
-	public ArrayList<Disciplina> getMaterias_reprovadas(){
-		return materias_reprovadas;
-	}
-	
-	public void setMaterias_aprovadas(ArrayList<Disciplina> materias_aprovadas) {
-		this.materias_aprovadas = materias_aprovadas;
-	}
-	
-	public ArrayList<Disciplina> getMaterias_aprovadas(){
-		return materias_reprovadas;
-	}
 		
 	public double getCa() {
 		return ca;
@@ -99,17 +85,32 @@ public class Aluno {
 		this.cr = cr;
 	}
 	
-	
-	public double getCp() {
-		return cp;
+
+	public int getObrigatorias() {
+		return this.obrigatorios_concluidos;
 	}
 	
-	public void setCp(double cp) {
-		this.cp = cp;
+	public void setObrigatorias(int obrigatorias) {
+		this.obrigatorios_concluidos = obrigatorias;
 	}
-
-
 	
-
+	
+	public int getLimitadas() {
+		return this.limitados_concluidos;
+	}
+	
+	public void setLimitadass(int limitadas) {
+		this.limitados_concluidos = limitadas;
+	}
+	
+	
+	public int getLivres() {
+		return this.livres_concluidos;
+	}
+	
+	public void setLivres(int livres) {
+		this.livres_concluidos = livres;
+	}
+	
 	
 }

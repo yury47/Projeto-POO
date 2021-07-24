@@ -9,6 +9,7 @@ public class Disciplina {
 	private String codigo;
 	private String categoria;
 	private String conceito;
+	private boolean maior_nota;
 	
 	public Disciplina(String nome, String creditos, String periodo, String situacao, String ano, String codigo, String categoria, String conceito) {
 		this.nome = nome;
@@ -83,6 +84,14 @@ public class Disciplina {
 
 	public void setConceito(String conceito) {
 		this.conceito = conceito;
+	}
+	
+	public void setMaiornota(boolean bo) {
+		maior_nota = bo;
+	}
+	
+	public boolean getMaiornota() {
+		return this.maior_nota;
 	}
 	
 	
