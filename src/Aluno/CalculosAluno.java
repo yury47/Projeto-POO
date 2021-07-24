@@ -51,24 +51,35 @@ public class CalculosAluno {
 		
 		for (int i=0; i<aluno.getMaterias_cursadas().size(); i++) {
 			
-			if(aluno.getMaterias_cursadas().get(i).getSituacao().equals("Aprovado") && 
-					aluno.getMaterias_cursadas().get(i).getMaiornota()) {
+			if(aluno.getMaterias_cursadas().get(i).getMaiornota()) {
 				float creditos = Float.parseFloat(aluno.getMaterias_cursadas().get(i).getCreditos());
-				soma_creditos += creditos;
+				
 				
 				switch(aluno.getMaterias_cursadas().get(i).getConceito()) {
-				case "A":
-					soma_produtos += 4*creditos;
-					break;
-				case "B":
-					soma_produtos += 3*creditos;
-					break;
-				case "C":
-					soma_produtos += 2*creditos;
-					break;
-				case "D":
-					soma_produtos += 1*creditos;
-					break;
+					case "A":
+						soma_produtos += 4*creditos;
+						soma_creditos += creditos;
+						break;
+					case "B":
+						soma_produtos += 3*creditos;
+						soma_creditos += creditos;
+						break;
+					case "C":
+						soma_produtos += 2*creditos;
+						soma_creditos += creditos;
+						break;
+					case "D":
+						soma_produtos += 1*creditos;
+						soma_creditos += creditos;
+						break;
+					case "E":
+						break;
+					case "F":
+						soma_creditos += creditos;
+						break;
+					case "O":
+						soma_creditos += creditos;
+						break;
 				}
 			}
 					

@@ -39,6 +39,18 @@ public class CalculosGraduacao {
 			}
 		}
 		
+		for (int i = 0; i<notas.size(); i++) {
+			if(notas.get(i).equals("F")) {
+				return "F";
+			}
+		}
+		
+		for (int i = 0; i<notas.size(); i++) {
+			if(notas.get(i).equals("O")) {
+				return "O";
+			}
+		}
+		
 		return null;
 		
 	}
