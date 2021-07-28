@@ -27,6 +27,7 @@ public class Principal {
 		CalculosAluno.calculaLivres(aluno);*/
 		//CriaPlanilhaSaida.criarPlanilhaPersonalizada(aluno);
 		BCT.lerJSON(aluno);
+		// comparar materias feitas com as materias obrigatorias e colocar numa aba nova do excel
 		
 	}
 		

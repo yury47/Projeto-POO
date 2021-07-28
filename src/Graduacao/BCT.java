@@ -35,29 +35,30 @@ public class BCT extends Graduacao{
 		JSONArray jarray = new JSONArray(obj.toString());
 		ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
 		
+		
 		for(int i = 0; i < jarray.length(); i++) {
 			
-			JSONObject materia = jarray.getJSONObject(i);
+			JSONObject materia_obj = jarray.getJSONObject(i);
+			String nome = materia_obj.getString("nome");
+			String codigo = materia_obj.getString("codigo");
+			String credito = Integer.toString(materia_obj.getInt("creditos"));
 			
-			String nome = materia.getString("nome");
-			String codigo = materia.getString("codigo");
-			String credito = Integer.toString(materia.getInt("creditos"));
+			JSONArray requisitos_array = materia_obj.getJSONArray("requisitos");
+			ArrayList<String> requisitos = new ArrayList<String>();
 			
-			JSONObject obija = new JSONObject
-			JSONArray requisitos = new JSONArray(materia.getString("requisitos"));
-			for(int j = 0; j < requisitos.length(); j++) {
-				String juju = 
+			//System.out.println(nome);
+			for (int j=0; j < requisitos_array.length(); j++) {	
+				//System.out.println(requisitos_array.getString(j));
+				requisitos.add(requisitos_array.getString(j));
 			}
-			System.out.println(requisitos);
 			
-			//materiasObrigatorias novaMateria = new materiasObrigatorias(nome, codigo, credito, requisitos);
-			//materias.add(novaMateria);
-			
+			materiasObrigatorias materia = new materiasObrigatorias(credito, credito, credito, requisitos);
+			materias.add(materia);
 		}
 		
 	}
 	
-	public static void comparaBCTvsAluno(ArrayList materias) {
+	public static void comparaBCTvsAluno() {
 		
 	}
 	
