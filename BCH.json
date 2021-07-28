@@ -1,0 +1,154 @@
+[
+	{
+		"nome": "Estado e Relações de Poder",
+		"codigo": "BHO0101-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Estrutura e Dinâmica Social",
+		"codigo": "BIQ0602-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Introdução à Economia",
+		"codigo": "BHO1102-19",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Introdução ao Pensamento Econômico",
+		"codigo": "BHO0002-19",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Ética e Justiça",
+		"codigo": "BHP0001-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Pensamento Crítico",
+		"codigo": "BHP0202-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Temas e Problemas em Filosofia",
+		"codigo": "BHP0202-19",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Estudos de Gênero",
+		"codigo": "BHQ0004-19",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Estudos Étnico-Raciais",
+		"codigo": "BHQ0002-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	{
+		"nome": "Formação do Sistema Internacional",
+		"codigo": "BHO1335-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Identidade e Cultura",
+		"codigo": "BHQ0001-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Interpretações do Brasil",
+		"codigo": "BHQ0003-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Território e Sociedade",
+		"codigo": "BHQ0301-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Ciência, Tecnologia e Sociedade",
+		"codigo": "BIR0603-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Desenvolvimento e Sustentabilidade",
+		"codigo": "BHO0102-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Bases Epistemológicas da Ciência Moderna",
+		"codigo": "BIR0004-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Introdução às Humanidades e às Ciências Sociais",
+		"codigo": "BHO0001-19",
+		"creditos": "2",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Práticas em Ciências e Humanidades",
+		"codigo": "BHS0005-19",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Biodiversidade: Interações entre organismos e ambiente",
+		"codigo": "BCL0306-15",
+		"creditos": "3",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Bases Computacionais da Ciência",
+		"codigo": "BIS0005-15",
+		"creditos": "2",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Bases Matemáticas",
+		"codigo": "BIS0003-15",
+		"creditos": "4",
+		"requisitos": []
+	},
+	
+	{
+		"nome": "Introdução à Probabilidade e à Estatística",
+		"codigo": "BIN0406-15",
+		"creditos": "3",
+		"requisitos": ["BCN0402-15"]
+	}
+]

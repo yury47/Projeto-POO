@@ -1,0 +1,185 @@
+[
+
+{
+"nome":"Fenômenos Mecânicos",
+"codigo":"BCJ0204-15",
+"creditos": 5,
+"requisitos":["BCN0404-15","BCN0402-15"] 
+},
+
+{
+"nome":"Fenômenos Térmicos",
+"codigo":"BCJ0205-15",
+"creditos": 4,
+"requisitos":["BIK0102-15","BCJ0204-15","BCN0402-15"] 
+},
+
+{
+"nome":"Fenômenos Eletromagnéticos",
+"codigo":"BCJ0203-15",
+"creditos": 5,
+"requisitos":["BCJ0204-15","BCN0404-15","BCN0405-15"] 
+},
+
+{
+"nome":"Bases Conceituais da Energia",
+"codigo":"BIJ0207-15",
+"creditos": 2,
+"requisitos":[] 
+},
+
+{
+"nome":"Evolução e Diversificação da Vida na Terra",
+"codigo":"BIL0304-15",
+"creditos": 3,
+"requisitos":[] 
+},
+
+{
+"nome":"Transformações Químicas",
+"codigo":"BCL0307-15",
+"creditos": 5,
+"requisitos":["BIK0102-15"] 
+},
+
+{
+"nome":"Biodiversidade: Interações entre organismos e ambiente",
+"codigo":"BCL0306-15",
+"creditos": 3,
+"requisitos":[] 
+},
+
+{
+"nome":"Geometria Analítica",
+"codigo":"BCN0404-15",
+"creditos": 3,
+"requisitos":["BIS0003-15"] 
+},
+
+{
+"nome":"Funções de Uma Variável",
+"codigo":"BCN0402-15",
+"creditos": 4,
+"requisitos":["BIS0003-15"] 
+},
+
+{
+"nome":"Funções de Várias Variáveis",
+"codigo":"BCN0407-15",
+"creditos": 4,
+"requisitos":["BCN0404-15","BCN0402-15"] 
+},
+
+{
+"nome":"Introdução às Equações Diferenciais Ordinárias",
+"codigo":"BCN0405-15",
+"creditos": 4,
+"requisitos":["BCN0407-15"] 
+},
+
+{
+"nome":"Introdução à Probabilidade e à Estatística",
+"codigo":"BIN0406-15",
+"creditos": 3,
+"requisitos":["BCN0402-15"] 
+},
+
+{
+"nome":"Natureza da Informação",
+"codigo":"BCM0504-15",
+"creditos": 3,
+"requisitos":["BIS0005-15"] 
+},
+
+{
+"nome":"Processamento da Informação",
+"codigo":"BCM0505-15",
+"creditos": 5,
+"requisitos":["BIS0005-15"] 
+},
+
+{
+"nome":"Comunicação e Redes",
+"codigo":"BCM0506-15",
+"creditos": 3,
+"requisitos":["BCM0505-15"] 
+},
+
+{
+"nome":"Estrutura da Matéria",
+"codigo":"BIK0102-15",
+"creditos": 3,
+"requisitos":[] 
+},
+
+{
+"nome":"Física Quântica",
+"codigo":"BCK0103-15",
+"creditos": 3,
+"requisitos":["BIK0102-15","BCJ0204-15","BCJ0205-15","BCJ0203-15"] 
+},
+
+{
+"nome":"Interações Atômicas e Moleculares",
+"codigo":"BCK0104-15",
+"creditos": 3,
+"requisitos":["BCL0307-15","BCK0103-15"] 
+},
+
+{
+"nome":"Bioquímica: estrutura, propriedade e funções de Biomoléculas",
+"codigo":"BCL0308-15",
+"creditos": 5,
+"requisitos":["BIK0102-15","BCL0307-15"] 
+},
+
+{
+"nome":"Bases Epistemológicas da Ciência Moderna",
+"codigo":"BIR0004-15",
+"creditos": 3,
+"requisitos":[] 
+},
+
+{
+"nome":"Estrutura e Dinâmica Social",
+"codigo":"BIQ0602-15",
+"creditos": 3,
+"requisitos":[]
+},
+
+{
+"nome":"Ciência, Tecnologia e Sociedade",
+"codigo":"BIR0603-15",
+"creditos": 3,
+"requisitos":[]
+},
+
+{
+"nome":"Base Experimental das Ciências Naturais",
+"codigo":"BCS002-15",
+"creditos": 3,
+"requisitos":[]
+},
+
+{
+"nome":"Projeto Dirigido",
+"codigo":"BCS0002-15",
+"creditos": 2,
+"requisitos":[]
+},
+
+{
+"nome":"Bases Computacionais da Ciência",
+"codigo":"BIS0005-15",
+"creditos": 2,
+"requisitos":[]
+},
+
+{
+"nome":"Bases Matemáticas",
+"codigo":"BIS0003-15",
+"creditos": 4,
+"requisitos":[]
+}
+
+]
