@@ -10,30 +10,33 @@ import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import principal.Leitura_JSON;
+
 import Aluno.Aluno;
 
 public class BCT extends Graduacao{
 	
-	
-	private ArrayList<Disciplina> disciplinas;
+	static Aluno aluno = new Aluno ("Caio", "1120172551","Ciência da Computação");
 	
 	public BCT (Aluno aluno) throws FileNotFoundException, IOException, ParseException{
 		super("BCT",90,43,57,150);
-		lerJSON(aluno);
+		lerJSONbct(aluno);
 	}
-
+	
 	@Override
 	public void setMaterias() {
 		// TODO Auto-generated method stub
 		
 	}
 	
-	public static void lerJSON(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
+	static ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
+	
+	public static ArrayList<materiasObrigatorias> lerJSONbct(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
 		
 		JSONParser parser = new JSONParser();
 		Object obj = parser.parse(new FileReader("BCT.json"));
 		JSONArray jarray = new JSONArray(obj.toString());
-		ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
+		
 		
 		
 		for(int i = 0; i < jarray.length(); i++) {
@@ -46,20 +49,49 @@ public class BCT extends Graduacao{
 			JSONArray requisitos_array = materia_obj.getJSONArray("requisitos");
 			ArrayList<String> requisitos = new ArrayList<String>();
 			
-			//System.out.println(nome);
 			for (int j=0; j < requisitos_array.length(); j++) {	
-				//System.out.println(requisitos_array.getString(j));
+				
 				requisitos.add(requisitos_array.getString(j));
 			}
 			
-			materiasObrigatorias materia = new materiasObrigatorias(credito, credito, credito, requisitos);
+			materiasObrigatorias materia = new materiasObrigatorias(nome, codigo, credito, requisitos);
 			materias.add(materia);
 		}
+		return materias;
 		
 	}
 	
-	public static void comparaBCTvsAluno() {
+	public static void comparaMaterias() throws FileNotFoundException, IOException, ParseException {
 		
+		ArrayList <Disciplina> materiasFeitas;
+		ArrayList<materiasObrigatorias> materiasBCT;
+		
+		materiasFeitas = Leitura_JSON.lerJSON(aluno);
+		materiasBCT = lerJSONbct(aluno);
+		ArrayList<materiasObrigatorias> obrigatoriasConcluidas = new ArrayList<materiasObrigatorias>();
+		
+		for(int i = 0; i < materiasFeitas.size(); i ++) {
+			
+			String codigo1 = materiasFeitas.get(i).getCodigo();
+			System.out.println(codigo1);
+			String situacao = materiasFeitas.get(i).getSituacao();
+			
+			for(int j = 0; j < materias.size(); j++) {
+
+				String codigo2 = materiasBCT.get(j).getCodigo();	
+				
+				if(codigo1.equals(codigo2)) {
+					if(situacao.equals("Aprovado")||situacao.equals("Disc.Equiv")){
+						System.out.println(materiasFeitas.get(i).getNome());
+						System.out.println(materiasFeitas.get(i).getCodigo());
+						System.out.println(materiasFeitas.get(i).getSituacao());
+						
+						obrigatoriasConcluidas.add(materiasBCT.get(j));
+					}
+				}
+			}
+		}
+		System.out.println("Populamos o vetor de obrigatórias aprovadas");
 	}
 	
 }

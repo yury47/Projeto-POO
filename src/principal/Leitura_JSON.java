@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Leitura_JSON {
 	
 	
-	public static void lerJSON(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
+	public static ArrayList<Disciplina> lerJSON(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
 		
 		JSONParser parser = new JSONParser(); 
 
@@ -55,6 +55,8 @@ public class Leitura_JSON {
 	    		aluno.getMaterias_cursadas().get(i).setMaiornota(true);
 	    	}
 	    }
+	    System.out.println("Lemos");
+		return materias;
 	}
 	
 }
