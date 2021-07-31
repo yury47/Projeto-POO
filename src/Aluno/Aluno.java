@@ -16,9 +16,41 @@ public class Aluno {
 	private int obrigatorios_concluidos;
 	private int limitados_concluidos;
 	private int livres_concluidos;
+	private float percentual_obrigatoria;
+	private float percentual_limitada;
+	private float percentual_livre;
 	
 	
-	
+	public float getPercentual_obrigatoria() {
+		return percentual_obrigatoria;
+	}
+
+
+	public void setPercentual_obrigatoria(float percentual_obrigatoria) {
+		this.percentual_obrigatoria = percentual_obrigatoria;
+	}
+
+
+	public float getPercentual_limitada() {
+		return percentual_limitada;
+	}
+
+
+	public void setPercentual_limitada(float percentual_limitada) {
+		this.percentual_limitada = percentual_limitada;
+	}
+
+
+	public float getPercentual_livre() {
+		return percentual_livre;
+	}
+
+
+	public void setPercentual_livre(float percentual_livre) {
+		this.percentual_livre = percentual_livre;
+	}
+
+
 	public Aluno(String nome, String ra, String graduacao) {
 		this.nome = nome;
 		this.ra = ra;

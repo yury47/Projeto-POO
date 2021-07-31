@@ -6,6 +6,7 @@ import org.json.simple.parser.ParseException;
 import Aluno.Aluno;
 import Graduacao.CalculosGraduacao;
 import Graduacao.Disciplina;
+import Graduacao.materiasObrigatorias;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -58,5 +59,62 @@ public class Leitura_JSON {
 	    System.out.println("Lemos");
 		return materias;
 	}
+	
+	public static ArrayList<materiasObrigatorias> lerJSONbct(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
+		
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(new FileReader("BCT.json"));
+		JSONArray jarray = new JSONArray(obj.toString());
+		ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
+		
+		
+		for(int i = 0; i < jarray.length(); i++) {
+			
+			JSONObject materia_obj = jarray.getJSONObject(i);
+			String nome = materia_obj.getString("nome");
+			String codigo = materia_obj.getString("codigo");
+			String credito = Integer.toString(materia_obj.getInt("creditos"));
+			
+			JSONArray requisitos_array = materia_obj.getJSONArray("requisitos");
+			ArrayList<String> requisitos = new ArrayList<String>();
+			
+			for (int j=0; j < requisitos_array.length(); j++) {	
+				
+				requisitos.add(requisitos_array.getString(j));
+			}
+			
+			materiasObrigatorias materia = new materiasObrigatorias(nome, codigo, credito, requisitos);
+			materias.add(materia);
+		}
+		return materias;	
+	}
+	
+	public static ArrayList<materiasObrigatorias> lerJSONbch(Aluno aluno) throws FileNotFoundException, IOException, ParseException{
+			
+			JSONParser parser = new JSONParser();
+			Object obj = parser.parse(new FileReader("BCH.json"));
+			JSONArray jarray = new JSONArray(obj.toString());
+			ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
+			
+			for(int i = 0; i < jarray.length(); i++) {
+				
+				JSONObject materia_obj = jarray.getJSONObject(i);
+				String nome = materia_obj.getString("nome");
+				String codigo = materia_obj.getString("codigo");
+				String credito = Integer.toString(materia_obj.getInt("creditos"));
+				JSONArray requisitos_array = materia_obj.getJSONArray("requisitos");
+				ArrayList<String> requisitos = new ArrayList<String>();
+				
+				for (int j=0; j < requisitos_array.length(); j++) {	
+					
+					requisitos.add(requisitos_array.getString(j));
+				}
+				
+				materiasObrigatorias materia = new materiasObrigatorias(nome, codigo, credito, requisitos);
+				materias.add(materia);
+			}
+			return materias;	
+		}
+
 	
 }

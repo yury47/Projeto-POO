@@ -57,6 +57,5 @@ public abstract class Graduacao {
 		this.creditos_reserva_vaga = creditos_reserva_vaga;
 	}
 	
-	public abstract void setMaterias(); //definir se vai ser isso mesmo ainda
 
 }

@@ -16,16 +16,17 @@ import Aluno.Aluno;
 
 public class BCH extends Graduacao{
 	
-	//private ArrayList<Disciplina> disciplinas;
+	private ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
 	
 	public BCH (Aluno aluno) throws FileNotFoundException, IOException, ParseException{
-		super("BCT",90,43,57,150);
+		super("BCH", 72, 43, 68, 150);
+		this.materias = Leitura_JSON.lerJSONbct(aluno);
+	}
+	
+	
+	public ArrayList<materiasObrigatorias> getMaterias(){
+		return this.materias;
 	}
 
-	@Override
-	public void setMaterias() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

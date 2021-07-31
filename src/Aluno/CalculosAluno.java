@@ -1,8 +1,24 @@
 package Aluno;
 
+import Graduacao.BCT;
+
 public class CalculosAluno {
 	
-	public static float calculaCr(Aluno aluno) {  // recebe dois vetores, um com os creditos e um com os conceitos
+	public static void calculaCoeficientes(Aluno aluno, BCT bct) {
+		calculaCr(aluno);
+		calculaCa(aluno);
+		calculaLimitadas(aluno);
+		calculaLivres(aluno);
+		calculaPercentuais(aluno, bct);
+	}
+	
+	public static void calculaPercentuais(Aluno aluno, BCT bct) {
+		aluno.setPercentual_obrigatoria(aluno.getObrigatorias()/bct.getCreditos_obrigatorios());// colocar na materias a fazer
+		aluno.setLimitadass(aluno.getLimitadas()/bct.getCreditos_limitados());
+		aluno.setPercentual_livre(aluno.getLivres()/bct.getCreditos_livres());
+	}
+	
+	public static void calculaCr(Aluno aluno) {  // recebe dois vetores, um com os creditos e um com os conceitos
 		float cr = 0;
 		float soma_creditos = 0, soma_produtos = 0;
 		
@@ -41,10 +57,10 @@ public class CalculosAluno {
 		}
 		
 		cr = soma_produtos/soma_creditos;
-		return cr;
+		aluno.setCr(cr);
 	}
 	
-	public static float calculaCa(Aluno aluno) {
+	public static void calculaCa(Aluno aluno) {
 		float ca = 0;
 		float soma_creditos = 0, soma_produtos = 0;
 		
@@ -86,7 +102,7 @@ public class CalculosAluno {
 		}
 		
 		ca = soma_produtos/soma_creditos;
-		return ca;
+		aluno.setCa(ca);
 	}
 	
 	public static int calculaObrigatorias(Aluno aluno) {
@@ -106,7 +122,7 @@ public class CalculosAluno {
 	return obrigatorias;
 	}
 	
-	public static int calculaLimitadas(Aluno aluno) {
+	public static void calculaLimitadas(Aluno aluno) {
 		int limitadas = 0;
 		
 		for (int i=0; i<aluno.getMaterias_cursadas().size(); i++) {
@@ -120,10 +136,10 @@ public class CalculosAluno {
 					
 		}
 	System.out.println("Limitadas: "+ limitadas);
-	return limitadas;
+	aluno.setLimitadass(limitadas);
 	}
 	
-	public static int calculaLivres(Aluno aluno) {
+	public static void calculaLivres(Aluno aluno) {
 		int livres = 0;
 		
 		for (int i=0; i<aluno.getMaterias_cursadas().size(); i++) {
@@ -137,7 +153,7 @@ public class CalculosAluno {
 					
 		}
 	System.out.println("Livres: "+ livres);
-	return livres;
+	aluno.setLivres(livres);
 	}
 	
 }
