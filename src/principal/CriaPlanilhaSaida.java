@@ -38,8 +38,8 @@ public class CriaPlanilhaSaida {
 		Sheet progresso = arquivo.createSheet("Informações do Aluno(a)");
 		
 		
-		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "PERCENTUAL DE OBRIGATORIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
-		String dados[] = {aluno.getNome(), aluno.getRa(), aluno.getGraduacao(), Double.toString(aluno.getCr()), Double.toString(aluno.getCa()), Float.toString(aluno.getPercentual_obrigatoria()), Float.toString(aluno.getPercentual_limitada()), Float.toString(aluno.getPercentual_livre())};
+		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "OBRIGATORIAS:", "LIMITADAS:", "LIMITADAS:", "PERCENTUAL DE OBRIGATORIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
+		String dados[] = {aluno.getNome(), aluno.getRa(), aluno.getGraduacao(), Double.toString(aluno.getCr()), Double.toString(aluno.getCa()), Integer.toString(aluno.getObrigatorias()), Integer.toString(aluno.getLimitadas()), Integer.toString(aluno.getLivres()), Float.toString(aluno.getPercentual_obrigatoria()), Float.toString(aluno.getPercentual_limitada()), Float.toString(aluno.getPercentual_livre())};
 		
 		for(int i = 0; i < indices.length; i++) {
 			Row linha = progresso.createRow(i);
@@ -50,7 +50,6 @@ public class CriaPlanilhaSaida {
 			coluna2.setCellValue(dados[i]);
 		}	
 	}
-
 	
 	public static void criarAbaMateriasRestantes(Aluno aluno, BCT bct, HSSFWorkbook arquivo) throws IOException, ParseException {
 		ArrayList<materiasObrigatorias> materiasRestantes = CalculosGraduacao.materiasRestantesBCT(aluno, bct);
@@ -59,7 +58,7 @@ public class CriaPlanilhaSaida {
 		
 		Row indice = progresso.createRow(0);
 		
-		for (int j = 0; j < 4; j ++) {
+		for (int j = 0; j < 6; j ++) {
 			Cell celula = indice.createCell(j);
 	
 			switch(j) {		
@@ -73,17 +72,23 @@ public class CriaPlanilhaSaida {
 				celula.setCellValue("QUANTIDADE DE CREDITOS");
 				break;
 			case 3:
-				celula.setCellValue("REQUISITOS");
+				celula.setCellValue("REQUISITO 1");
+				break;
+			case 4:
+				celula.setCellValue("REQUISITO 2");
+				break;
+			case 5:
+				celula.setCellValue("REQUISITO 3");
 				break;
 			}
+			
 		}
 
 		for(int i = 0; i < materiasRestantes.size(); i ++) {
 			Row linha = progresso.createRow(i+1);
 			
-			for(int j = 1; j <= 5; j ++) {
+			for(int j = 1; j <= 6; j ++) {
 				Cell celula = linha.createCell(j-1);
-				
 				switch(j) {
 				case 1:
 					celula.setCellValue(materiasRestantes.get(i).getNome());
@@ -96,15 +101,35 @@ public class CriaPlanilhaSaida {
 				case 3:
 					celula.setCellValue(materiasRestantes.get(i).getCreditos());
 					break;
-					
+				
+				
 				case 4:
-					celula.setCellValue(materiasRestantes.get(i).getRequisitos().get(0));
+					if(materiasRestantes.get(i).getRequisitos().size() > 0) {
+						celula.setCellValue(materiasRestantes.get(i).getRequisitos().get(0));
+					}
+					else {
+						celula.setCellValue("N/A");
+					}
 					break;
 					
 				case 5:
-					celula.setCellValue(materiasRestantes.get(i).getRequisitos().get(1));
-					
+					if(materiasRestantes.get(i).getRequisitos().size() > 1) {
+						celula.setCellValue(materiasRestantes.get(i).getRequisitos().get(1));
+					}
+					else {
+						celula.setCellValue("N/A");
+					}
 					break;
+				
+				case 6:
+					if(materiasRestantes.get(i).getRequisitos().size() > 2) {
+						celula.setCellValue(materiasRestantes.get(i).getRequisitos().get(2));
+					}
+					else {
+						celula.setCellValue("N/A");
+					}
+					break;
+					
 				}
 			}
 		}

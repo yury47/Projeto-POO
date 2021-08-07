@@ -28,9 +28,6 @@ public class CriaPlanilha{
         Sheet sheet4 = wb.createSheet("Tree");
         Sheet sheet5 = wb.createSheet("Dynamic Programing");
         Sheet sheet6 = wb.createSheet("Puzzles");
-          
-  
-        System.out.println("Sheets Has been Created successfully");
   
         wb.write(fileOut);
 	}

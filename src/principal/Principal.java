@@ -19,22 +19,7 @@ public class Principal {
 		Leitura_JSON.lerJSON(aluno);
 		BCT bct = new BCT(aluno);
 		CalculosAluno.calculaCoeficientes(aluno, bct);
-		
 		CriaPlanilhaSaida.criarPlanilha(aluno, bct);
-		/*aluno.setCr(CalculosAluno.calculaCr(aluno));
-		aluno.setCa(CalculosAluno.calculaCa(aluno));
-		System.out.printf("CR: %.3f", aluno.getCr());
-		System.out.println();
-		System.out.printf("CA: %.3f", aluno.getCa());
-		System.out.println();
-		CalculosAluno.calculaObrigatorias(aluno);
-		CalculosAluno.calculaLimitadas(aluno);
-		CalculosAluno.calculaLivres(aluno);*/
-		//CriaPlanilhaSaida.criarPlanilhaPersonalizada(aluno);
-		//BCT.lerJSONbct(aluno);
-		//BCH.lerJSONbch(aluno);
-		// comparar materias feitas com as materias obrigatorias e colocar numa aba nova do excel
-		
 	}
 		
 }

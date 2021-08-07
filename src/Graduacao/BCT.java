@@ -20,8 +20,8 @@ public class BCT extends Graduacao{
 	private ArrayList<materiasObrigatorias> materias = new ArrayList<materiasObrigatorias>();
 	
 	public BCT (Aluno aluno) throws FileNotFoundException, IOException, ParseException{
-		super("BCT", 90, 40, 72, 200);
-		this.materias = Leitura_JSON.lerJSONbch(aluno);
+		super("BCT", 90, 40, 72, 150);
+		this.materias = Leitura_JSON.lerJSONbct(aluno);
 	}
 	
 	
