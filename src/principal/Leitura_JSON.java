@@ -23,7 +23,7 @@ public class Leitura_JSON {
 		JSONParser parser = new JSONParser(); 
 
 		//Corrigir a pasta de acesso do arquivo
-		Object obj = parser.parse(new FileReader("fichaYury.json"));
+		Object obj = parser.parse(new FileReader("ficha.json"));
 		
 		JSONArray jarray = new JSONArray(obj.toString());
 	    
@@ -54,7 +54,6 @@ public class Leitura_JSON {
 	    		aluno.getMaterias_cursadas().get(i).setMaiornota(true);
 	    	}
 	    }
-	    System.out.println("Lemos");
 		return materias;
 	}
 	

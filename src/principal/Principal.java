@@ -24,12 +24,6 @@ public class Principal {
 		Leitura_JSON.lerJSON(aluno);
 		CalculosAluno.calculaCoeficientes(aluno, bi);
 		CriaPlanilhaSaida.criarPlanilha(aluno, bi);
-		
-		/*
-		Leitura_JSON.lerJSON(aluno);
-		BCT bct = new BCT(aluno);
-		CalculosAluno.calculaCoeficientes(aluno, bct);
-		CriaPlanilhaSaida.criarPlanilha(aluno, bct);*/
 	}
 		
 }

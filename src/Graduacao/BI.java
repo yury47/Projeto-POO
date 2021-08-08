@@ -13,7 +13,7 @@ public class BI extends Graduacao{
 	
 	public BI (Aluno aluno, String nome, int creditos_obrigatorios, int creditos_limitados, int creditos_livres, int creditos_reserva) throws FileNotFoundException, IOException, ParseException{
 		super(nome, creditos_obrigatorios, creditos_livres, creditos_limitados, creditos_reserva);
-		System.out.println(nome);
+		//System.out.println(nome);
 		if(nome.equals("BCT")) {
 			this.materias = Leitura_JSON.lerJSONbct(aluno);
 		} else if (nome.equals("BCH")) {

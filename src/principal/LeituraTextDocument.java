@@ -13,22 +13,15 @@ public class LeituraTextDocument {
 		BufferedReader buffRead = new BufferedReader(new FileReader(path));
 		String linha;
 		ArrayList<String> info = new ArrayList<String>();
-		int cont = 0;
 		while(true){
 			linha = buffRead.readLine();
 			info.add(linha);
-			if(linha != null) {
-				System.out.println(linha);
-				cont++;
-			} else 
+			if(linha == null) {
 				break;
-			
+			}			
 		}
-		System.out.println(cont);
 		buffRead.close();
-		
-		System.out.println(info);
-		
+				
 		String nome = info.get(0);
 		String ra = info.get(1);
 		String graduacao = info.get(2);

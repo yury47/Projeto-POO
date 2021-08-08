@@ -5,17 +5,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hssf.util.HSSFColor;
-//import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.json.simple.parser.ParseException;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.hssf.usermodel.*;
-import java.awt.Color;
 import Aluno.Aluno;
 import Graduacao.BI;
 import Graduacao.CalculosGraduacao;
@@ -42,7 +35,7 @@ public class CriaPlanilhaSaida {
 	public static void criarAbaIntroducao(Aluno aluno, HSSFWorkbook arquivo) throws IOException, ParseException {
 		Sheet progresso = arquivo.createSheet("Informações do Aluno(a)");
 				
-		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "CRÉDITOS OBRIGATORIAS:", "CRÉDITOS LIMITADAS:", "CRÉDITOS LIVRES:", "PERCENTUAL DE OBRIGATORIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
+		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "CRÉDITOS OBRIGATORIAS:", "CRÉDITOS LIMITADAS:", "CRÉDITOS LIVRES:", "PERCENTUAL DE OBRIGATÓRIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
 		String dados[] = {aluno.getNome(), 	aluno.getRa(), aluno.getGraduacao(), Double.toString(aluno.getCr()), Double.toString(aluno.getCa()), Integer.toString(aluno.getObrigatorias()), Integer.toString(aluno.getLimitadas()), Integer.toString(aluno.getLivres()), Float.toString(aluno.getPercentual_obrigatoria()), Float.toString(aluno.getPercentual_limitada()), Float.toString(aluno.getPercentual_livre())};
 		
 		for(int i = 0; i < indices.length; i++) {
@@ -70,10 +63,10 @@ public class CriaPlanilhaSaida {
 				celula.setCellValue("NOME");
 				break;
 			case 1:
-				celula.setCellValue("CODIGO");
+				celula.setCellValue("CÓDIGO");
 				break;
 			case 2:
-				celula.setCellValue("QUANTIDADE DE CREDITOS");
+				celula.setCellValue("QUANTIDADE DE CRÉDITOS");
 				break;
 			case 3:
 				celula.setCellValue("REQUISITO 1");
@@ -145,7 +138,7 @@ public class CriaPlanilhaSaida {
 		materias = aluno.getMaterias_cursadas();
 				
 		//Criando uma aba (ou planilha) no arquivo
-		Sheet progresso = arquivo.createSheet("Progresso da graduação");
+		Sheet progresso = arquivo.createSheet("Progresso da Graduação");
 		
 		Row indice = progresso.createRow(0);
 		
@@ -213,11 +206,9 @@ public class CriaPlanilhaSaida {
 					celula.setCellValue(materias.get(i).getCategoria());
 					break;
 				}
-				//Aprender a editar as células
 			}
 		
 		}
-		System.out.println("Planilha criada com sucesso!");
 	}
 
 }

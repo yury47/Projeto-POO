@@ -22,7 +22,6 @@ public class Aluno {
 	
 	public Aluno(String nome, String ra, String graduacao) {
 		this.nome = nome;
-		System.out.println(nome);
 		this.ra = ra;
 		this.graduacao = graduacao;
 	}
