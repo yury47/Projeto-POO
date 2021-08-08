@@ -1,5 +1,8 @@
 package Aluno;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import Graduacao.BCT;
 
 public class CalculosAluno {
@@ -7,19 +10,45 @@ public class CalculosAluno {
 	public static void calculaCoeficientes(Aluno aluno, BCT bct) {
 		calculaCr(aluno);
 		calculaCa(aluno);
+		calculaObrigatorias(aluno);
 		calculaLimitadas(aluno);
 		calculaLivres(aluno);
 		calculaPercentuais(aluno, bct);
 	}
 	
 	public static void calculaPercentuais(Aluno aluno, BCT bct) {
-		aluno.setPercentual_obrigatoria(aluno.getObrigatorias()/bct.getCreditos_obrigatorios());// colocar na materias a fazer
-		aluno.setLimitadass(aluno.getLimitadas()/bct.getCreditos_limitados());
-		aluno.setPercentual_livre(aluno.getLivres()/bct.getCreditos_livres());
+		float totalObrigatorias, obrigatoriasFeitas, percentualObrigatorias;
+		float totalLimitadas, limitadasFeitas, percentualLimitadas;
+		float totalLivres, livresFeitas, percentualLivres;
+		
+		obrigatoriasFeitas = aluno.getObrigatorias();
+		totalObrigatorias = bct.getCreditos_obrigatorios();
+		percentualObrigatorias = (obrigatoriasFeitas/totalObrigatorias)*100;
+		BigDecimal bd1 = new BigDecimal(percentualObrigatorias).setScale(1, RoundingMode.HALF_EVEN);
+		percentualObrigatorias = bd1.floatValue();
+		System.out.println("Percentual obrigatorias: " + percentualObrigatorias);
+		
+		livresFeitas = aluno.getLivres();
+		totalLivres = bct.getCreditos_livres();
+		percentualLivres = (livresFeitas/totalLivres)*100;
+		BigDecimal bd2 = new BigDecimal(percentualLivres).setScale(1, RoundingMode.HALF_EVEN);
+		percentualLivres = bd2.floatValue();
+		System.out.println("Percentual livres: " + percentualLivres);
+		
+		limitadasFeitas = aluno.getLimitadas();
+		totalLimitadas = bct.getCreditos_limitados();
+		percentualLimitadas = (limitadasFeitas/totalLimitadas)*100;
+		BigDecimal bd3 = new BigDecimal(percentualLimitadas).setScale(1, RoundingMode.HALF_EVEN);
+		percentualLimitadas = bd3.floatValue();
+		System.out.println("Percentual limitadas: "+percentualLimitadas);
+
+		aluno.setPercentual_obrigatoria(percentualObrigatorias);
+		aluno.setPercentual_limitada(percentualLimitadas);
+		aluno.setPercentual_livre(percentualLivres);
 	}
 	
 	public static void calculaCr(Aluno aluno) {  // recebe dois vetores, um com os creditos e um com os conceitos
-		float cr = 0;
+		double cr = 0;
 		float soma_creditos = 0, soma_produtos = 0;
 		
 		
@@ -57,11 +86,13 @@ public class CalculosAluno {
 		}
 		
 		cr = soma_produtos/soma_creditos;
+		BigDecimal bd = new BigDecimal(cr).setScale(3, RoundingMode.HALF_EVEN);
+		cr = bd.doubleValue();
 		aluno.setCr(cr);
 	}
 	
 	public static void calculaCa(Aluno aluno) {
-		float ca = 0;
+		double ca = 0;
 		float soma_creditos = 0, soma_produtos = 0;
 		
 		
@@ -102,10 +133,12 @@ public class CalculosAluno {
 		}
 		
 		ca = soma_produtos/soma_creditos;
+		BigDecimal bd = new BigDecimal(ca).setScale(3, RoundingMode.HALF_EVEN);
+		ca = bd.doubleValue();
 		aluno.setCa(ca);
 	}
 	
-	public static int calculaObrigatorias(Aluno aluno) {
+	public static void calculaObrigatorias(Aluno aluno) {
 		int obrigatorias = 0;
 		
 		for (int i=0; i<aluno.getMaterias_cursadas().size(); i++) {
@@ -118,8 +151,7 @@ public class CalculosAluno {
 			}
 					
 		}
-	System.out.println("Obrigatorias: "+ obrigatorias);
-	return obrigatorias;
+		aluno.setObrigatorias(obrigatorias);
 	}
 	
 	public static void calculaLimitadas(Aluno aluno) {
@@ -135,8 +167,7 @@ public class CalculosAluno {
 			}
 					
 		}
-	System.out.println("Limitadas: "+ limitadas);
-	aluno.setLimitadass(limitadas);
+		aluno.setLimitadas(limitadas);
 	}
 	
 	public static void calculaLivres(Aluno aluno) {
@@ -152,8 +183,7 @@ public class CalculosAluno {
 			}
 					
 		}
-	System.out.println("Livres: "+ livres);
-	aluno.setLivres(livres);
+		aluno.setLivres(livres);
 	}
 	
 }

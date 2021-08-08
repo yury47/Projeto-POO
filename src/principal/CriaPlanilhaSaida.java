@@ -6,11 +6,19 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.formula.functions.Column;
+import org.apache.poi.hssf.util.HSSFColor;
+//import org.apache.poi.ss.formula.functions.Column;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.json.simple.parser.ParseException;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.hssf.usermodel.*;
+
+import java.awt.Color;
+
 
 import Aluno.Aluno;
 import Graduacao.BCT;
@@ -20,6 +28,7 @@ import Graduacao.materiasObrigatorias;
 
 
 public class CriaPlanilhaSaida {
+			
 	
 	public static void criarPlanilha(Aluno aluno, BCT bct) throws IOException, ParseException {
 		//Criando o arquivo vazio
@@ -36,14 +45,13 @@ public class CriaPlanilhaSaida {
 	
 	public static void criarAbaIntroducao(Aluno aluno, HSSFWorkbook arquivo) throws IOException, ParseException {
 		Sheet progresso = arquivo.createSheet("Informações do Aluno(a)");
-		
-		
-		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "OBRIGATORIAS:", "LIMITADAS:", "LIMITADAS:", "PERCENTUAL DE OBRIGATORIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
-		String dados[] = {aluno.getNome(), aluno.getRa(), aluno.getGraduacao(), Double.toString(aluno.getCr()), Double.toString(aluno.getCa()), Integer.toString(aluno.getObrigatorias()), Integer.toString(aluno.getLimitadas()), Integer.toString(aluno.getLivres()), Float.toString(aluno.getPercentual_obrigatoria()), Float.toString(aluno.getPercentual_limitada()), Float.toString(aluno.getPercentual_livre())};
+				
+		String indices[] = {"NOME:", "RA:", "CURSO:", "CR:", "CA:", "CRÉDITOS OBRIGATORIAS:", "CRÉDITOS LIMITADAS:", "CRÉDITOS LIVRES:", "PERCENTUAL DE OBRIGATORIAS:", "PERCENTUAL DE LIMITADAS", "PERCENTUAL DE LIVRES"};
+		String dados[] = {aluno.getNome(), 	aluno.getRa(), aluno.getGraduacao(), Double.toString(aluno.getCr()), Double.toString(aluno.getCa()), Integer.toString(aluno.getObrigatorias()), Integer.toString(aluno.getLimitadas()), Integer.toString(aluno.getLivres()), Float.toString(aluno.getPercentual_obrigatoria()), Float.toString(aluno.getPercentual_limitada()), Float.toString(aluno.getPercentual_livre())};
 		
 		for(int i = 0; i < indices.length; i++) {
 			Row linha = progresso.createRow(i);
-			Row linha2 = progresso.createRow(i);
+			Row linha2 = progresso.createRow(i);			
 			Cell coluna = linha.createCell(0);
 			Cell coluna2 = linha2.createCell(1);
 			coluna.setCellValue(indices[i]);
@@ -213,11 +221,7 @@ public class CriaPlanilhaSaida {
 			}
 		
 		}
-		
-		
-		
 		System.out.println("Planilha criada com sucesso!");
-
 	}
 
 }

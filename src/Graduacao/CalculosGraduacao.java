@@ -79,7 +79,6 @@ public class CalculosGraduacao {
 				String codigo_materias_bct = materias_bct.get(j).getCodigo();	
 				
 				if(codigo_materias_aluno.equals(codigo_materias_bct)) {
-					System.out.println("comparação: " + codigo_materias_aluno + " " + codigo_materias_bct);
 					if(situacao.equals("Aprovado")||situacao.equals("Disc.Equiv")){
 						materias_bct.remove(j);
 					}

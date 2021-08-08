@@ -131,7 +131,7 @@ public class Aluno {
 		return this.limitados_concluidos;
 	}
 	
-	public void setLimitadass(int limitadas) {
+	public void setLimitadas(int limitadas) {
 		this.limitados_concluidos = limitadas;
 	}
 	
