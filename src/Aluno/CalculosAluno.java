@@ -2,41 +2,40 @@ package Aluno;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
-import Graduacao.BCT;
+import Graduacao.BI;
 
 public class CalculosAluno {
 	
-	public static void calculaCoeficientes(Aluno aluno, BCT bct) {
+	public static void calculaCoeficientes(Aluno aluno, BI bi) {
 		calculaCr(aluno);
 		calculaCa(aluno);
 		calculaObrigatorias(aluno);
 		calculaLimitadas(aluno);
 		calculaLivres(aluno);
-		calculaPercentuais(aluno, bct);
+		calculaPercentuais(aluno, bi);
 	}
 	
-	public static void calculaPercentuais(Aluno aluno, BCT bct) {
+	public static void calculaPercentuais(Aluno aluno, BI bi) {
 		float totalObrigatorias, obrigatoriasFeitas, percentualObrigatorias;
 		float totalLimitadas, limitadasFeitas, percentualLimitadas;
 		float totalLivres, livresFeitas, percentualLivres;
 		
 		obrigatoriasFeitas = aluno.getObrigatorias();
-		totalObrigatorias = bct.getCreditos_obrigatorios();
+		totalObrigatorias = bi.getCreditos_obrigatorios();
 		percentualObrigatorias = (obrigatoriasFeitas/totalObrigatorias)*100;
 		BigDecimal bd1 = new BigDecimal(percentualObrigatorias).setScale(1, RoundingMode.HALF_EVEN);
 		percentualObrigatorias = bd1.floatValue();
 		System.out.println("Percentual obrigatorias: " + percentualObrigatorias);
 		
 		livresFeitas = aluno.getLivres();
-		totalLivres = bct.getCreditos_livres();
+		totalLivres = bi.getCreditos_livres();
 		percentualLivres = (livresFeitas/totalLivres)*100;
 		BigDecimal bd2 = new BigDecimal(percentualLivres).setScale(1, RoundingMode.HALF_EVEN);
 		percentualLivres = bd2.floatValue();
 		System.out.println("Percentual livres: " + percentualLivres);
 		
 		limitadasFeitas = aluno.getLimitadas();
-		totalLimitadas = bct.getCreditos_limitados();
+		totalLimitadas = bi.getCreditos_limitados();
 		percentualLimitadas = (limitadasFeitas/totalLimitadas)*100;
 		BigDecimal bd3 = new BigDecimal(percentualLimitadas).setScale(1, RoundingMode.HALF_EVEN);
 		percentualLimitadas = bd3.floatValue();

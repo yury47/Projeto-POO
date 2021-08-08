@@ -62,19 +62,19 @@ public class CalculosGraduacao {
 		
 	}
 		
-	public static ArrayList<materiasObrigatorias> materiasRestantesBCT(Aluno aluno, BCT bct) throws FileNotFoundException, IOException, ParseException {		
+	public static ArrayList<materiasObrigatorias> materiasRestantes(Aluno aluno, BI bi) throws FileNotFoundException, IOException, ParseException {		
 		ArrayList <Disciplina> materiasFeitas;
 		ArrayList<materiasObrigatorias> materias_bct;
 		
 		materiasFeitas = aluno.getMaterias_cursadas();
-		materias_bct = bct.getMaterias();
+		materias_bct = bi.getMaterias();
 		
 		for(int i = 0; i < materiasFeitas.size(); i ++) {
 			
 			String codigo_materias_aluno = materiasFeitas.get(i).getCodigo();
 			String situacao = materiasFeitas.get(i).getSituacao();
 			
-			for(int j = 0; j < bct.getMaterias().size(); j++) {
+			for(int j = 0; j < bi.getMaterias().size(); j++) {
 				
 				String codigo_materias_bct = materias_bct.get(j).getCodigo();	
 				
@@ -87,30 +87,4 @@ public class CalculosGraduacao {
 		}
 		return materias_bct;
 	}
-		
-	public static ArrayList<materiasObrigatorias> materiasRestantesBCH(Aluno aluno, BCH bch) throws FileNotFoundException, IOException, ParseException {		
-		ArrayList <Disciplina> materiasFeitas;
-		ArrayList<materiasObrigatorias> materias_bct;
-		
-		materiasFeitas = aluno.getMaterias_cursadas();
-		materias_bct = bch.getMaterias();
-		
-		for(int i = 0; i < materiasFeitas.size(); i ++) {
-			
-			String codigo_materias_aluno = materiasFeitas.get(i).getCodigo();
-			String situacao = materiasFeitas.get(i).getSituacao();
-			
-			for(int j = 0; j < bch.getMaterias().size(); j++) {
-				String codigo_materias_bct = materias_bct.get(j).getCodigo();	
-				
-				if(codigo_materias_aluno.equals(codigo_materias_bct)) {
-					if(situacao.equals("Aprovado")||situacao.equals("Disc.Equiv")){
-						materias_bct.remove(j);
-					}
-				}
-			}
-		}
-		return materias_bct;
-	}
-	
 }

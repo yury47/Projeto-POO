@@ -20,6 +20,12 @@ public class Aluno {
 	private float percentual_limitada;
 	private float percentual_livre;
 	
+	public Aluno(String nome, String ra, String graduacao) {
+		this.nome = nome;
+		System.out.println(nome);
+		this.ra = ra;
+		this.graduacao = graduacao;
+	}
 	
 	public float getPercentual_obrigatoria() {
 		return percentual_obrigatoria;
@@ -48,13 +54,6 @@ public class Aluno {
 
 	public void setPercentual_livre(float percentual_livre) {
 		this.percentual_livre = percentual_livre;
-	}
-
-
-	public Aluno(String nome, String ra, String graduacao) {
-		this.nome = nome;
-		this.ra = ra;
-		this.graduacao = graduacao;
 	}
 		
 	

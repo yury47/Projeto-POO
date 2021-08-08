@@ -16,6 +16,7 @@ public class LeituraTextDocument {
 		int cont = 0;
 		while(true){
 			linha = buffRead.readLine();
+			info.add(linha);
 			if(linha != null) {
 				System.out.println(linha);
 				cont++;
@@ -25,6 +26,8 @@ public class LeituraTextDocument {
 		}
 		System.out.println(cont);
 		buffRead.close();
+		
+		System.out.println(info);
 		
 		String nome = info.get(0);
 		String ra = info.get(1);

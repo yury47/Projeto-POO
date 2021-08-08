@@ -2,13 +2,10 @@ package principal;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
 import org.json.simple.parser.ParseException;
-
 import Aluno.Aluno;
 import Aluno.CalculosAluno;
-import Graduacao.BCH;
-import Graduacao.BCT;
+import Graduacao.BI;
 
 
 public class Principal {
@@ -16,20 +13,20 @@ public class Principal {
 	public static void main (String[] args) throws FileNotFoundException, IOException, ParseException, java.text.ParseException {
 		
 		Aluno aluno = LeituraTextDocument.lerTexto("infoAluno.txt");
-		//Aluno aluno = new Aluno("Yury", "11201720122", "Ciência da computação");
+		BI bi = new BI(aluno, "n/a", 0, 0, 0, 0);
 		
 		if(aluno.getGraduacao().equals("BCT")) {
-			Leitura_JSON.lerJSON(aluno);
-			BCT bct = new BCT(aluno);
-			CalculosAluno.calculaCoeficientes(aluno, bct);
-			CriaPlanilhaSaida.criarPlanilha(aluno, bct);
+			bi = new BI(aluno, "BCT", 90, 40, 72, 150);
 		} else if (aluno.getGraduacao().equals("BCH")) {
-			Leitura_JSON.lerJSON(aluno);
-			BCH bch = new BCH(aluno);
-			CalculosAluno.calculaCoeficientes(aluno, bch);
-			CriaPlanilhaSaida.criarPlanilha(aluno, bch);
+			bi = new BI(aluno, "BCH", 72, 43, 68, 200);
 		}
-		/*Leitura_JSON.lerJSON(aluno);
+		
+		Leitura_JSON.lerJSON(aluno);
+		CalculosAluno.calculaCoeficientes(aluno, bi);
+		CriaPlanilhaSaida.criarPlanilha(aluno, bi);
+		
+		/*
+		Leitura_JSON.lerJSON(aluno);
 		BCT bct = new BCT(aluno);
 		CalculosAluno.calculaCoeficientes(aluno, bct);
 		CriaPlanilhaSaida.criarPlanilha(aluno, bct);*/

@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
 //import org.apache.poi.ss.formula.functions.Column;
@@ -16,12 +15,9 @@ import org.json.simple.parser.ParseException;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.hssf.usermodel.*;
-
 import java.awt.Color;
-
-
 import Aluno.Aluno;
-import Graduacao.BCT;
+import Graduacao.BI;
 import Graduacao.CalculosGraduacao;
 import Graduacao.Disciplina;
 import Graduacao.materiasObrigatorias;
@@ -30,7 +26,7 @@ import Graduacao.materiasObrigatorias;
 public class CriaPlanilhaSaida {
 			
 	
-	public static void criarPlanilha(Aluno aluno, BCT bct) throws IOException, ParseException {
+	public static void criarPlanilha(Aluno aluno, BI bi) throws IOException, ParseException {
 		//Criando o arquivo vazio
 		HSSFWorkbook arquivo = new HSSFWorkbook();
 		
@@ -38,7 +34,7 @@ public class CriaPlanilhaSaida {
 		OutputStream arquivoSaida = new FileOutputStream("Graduação.xls");
 		criarAbaIntroducao(aluno, arquivo);
 		criarPlanilhaPersonalizada(aluno,  arquivo);
-		criarAbaMateriasRestantes(aluno, bct, arquivo);
+		criarAbaMateriasRestantes(aluno, bi, arquivo);
 		arquivo.write(arquivoSaida);
 		arquivo.close();	
 	}
@@ -59,8 +55,8 @@ public class CriaPlanilhaSaida {
 		}	
 	}
 	
-	public static void criarAbaMateriasRestantes(Aluno aluno, BCT bct, HSSFWorkbook arquivo) throws IOException, ParseException {
-		ArrayList<materiasObrigatorias> materiasRestantes = CalculosGraduacao.materiasRestantesBCT(aluno, bct);
+	public static void criarAbaMateriasRestantes(Aluno aluno, BI bi, HSSFWorkbook arquivo) throws IOException, ParseException {
+		ArrayList<materiasObrigatorias> materiasRestantes = CalculosGraduacao.materiasRestantes(aluno, bi);
 		
 		Sheet progresso = arquivo.createSheet("Matérias Restantes");
 		
