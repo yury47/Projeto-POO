@@ -43,13 +43,13 @@ public class CalculosAluno {
 		aluno.setPercentual_livre(percentualLivres);
 	}
 	
-	public static void calculaCr(Aluno aluno) {  // recebe dois vetores, um com os creditos e um com os conceitos
+	public static void calculaCr(Aluno aluno) {
 		double cr = 0;
 		float soma_creditos = 0, soma_produtos = 0;
 		
 		
 		for (int i=0; i<aluno.getMaterias_cursadas().size(); i++) {
-			if(!(aluno.getMaterias_cursadas().get(i).getNome().equals("TRANCAMENTO TOTAL"))) { // considerando trancamento de disciplinas
+			if(!(aluno.getMaterias_cursadas().get(i).getNome().equals("TRANCAMENTO TOTAL"))) {
 				float creditos = Float.parseFloat(aluno.getMaterias_cursadas().get(i).getCreditos());
 				
 				switch(aluno.getMaterias_cursadas().get(i).getConceito()) {

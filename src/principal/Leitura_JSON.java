@@ -22,7 +22,6 @@ public class Leitura_JSON {
 		
 		JSONParser parser = new JSONParser(); 
 
-		//Corrigir a pasta de acesso do arquivo
 		Object obj = parser.parse(new FileReader("ficha.json"));
 		
 		JSONArray jarray = new JSONArray(obj.toString());
@@ -48,7 +47,7 @@ public class Leitura_JSON {
 	    
 	    aluno.setMaterias_cursadas(materias);
 	    
-	    for(int i = 0; i<aluno.getMaterias_cursadas().size(); i++) { // set booleano de maior nota
+	    for(int i = 0; i<aluno.getMaterias_cursadas().size(); i++) {
 	    	if(aluno.getMaterias_cursadas().get(i).getConceito()
 	    			.equals(CalculosGraduacao.confereMateria(aluno.getMaterias_cursadas().get(i).getCodigo(), aluno.getMaterias_cursadas()))) {
 	    		aluno.getMaterias_cursadas().get(i).setMaiornota(true);

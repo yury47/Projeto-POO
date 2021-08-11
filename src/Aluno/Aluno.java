@@ -8,9 +8,9 @@ public class Aluno {
 	private String nome;
 	private String ra;
 	private String graduacao;
-	private String ano_ingresso;  // format DD-MM-YYYY
-	private int periodo_ingresso; // quadrimestre 1,2 ou 3
-	private ArrayList<Disciplina> materias_cursadas;  // recebe a materia como parametro no set
+	private String ano_ingresso;
+	private int periodo_ingresso;
+	private ArrayList<Disciplina> materias_cursadas;
 	private double ca;
 	private double cr;
 	private int obrigatorios_concluidos;

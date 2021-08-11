@@ -20,10 +20,8 @@ public class CriaPlanilhaSaida {
 			
 	
 	public static void criarPlanilha(Aluno aluno, BI bi) throws IOException, ParseException {
-		//Criando o arquivo vazio
-		HSSFWorkbook arquivo = new HSSFWorkbook();
 		
-		//Criando o arquivo de saída
+		HSSFWorkbook arquivo = new HSSFWorkbook();
 		OutputStream arquivoSaida = new FileOutputStream("Graduação.xls");
 		criarAbaIntroducao(aluno, arquivo);
 		criarPlanilhaPersonalizada(aluno,  arquivo);
@@ -137,7 +135,6 @@ public class CriaPlanilhaSaida {
 		
 		materias = aluno.getMaterias_cursadas();
 				
-		//Criando uma aba (ou planilha) no arquivo
 		Sheet progresso = arquivo.createSheet("Progresso da Graduação");
 		
 		Row indice = progresso.createRow(0);
@@ -173,7 +170,6 @@ public class CriaPlanilhaSaida {
 			}
 		}
 		
-		//Populando a planilha com os valores tirados do arquivo JSON
 		for(int i = 0; i < materias.size(); i ++) {
 			Row linha = progresso.createRow(i+1);
 			
